@@ -1,0 +1,1 @@
+// Fuel quote history javascript
