@@ -1,1 +1,111 @@
-/* Style for login page */
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #192231;
+}
+
+header {
+    min-height: 200px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.header-container {
+    max-width: 700px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    font-size: 3em; 
+    font-weight: lighter;
+}
+
+.login-container {
+    margin-top: 50px;
+    margin-right: 100px; 
+    margin-left: 100px; 
+    padding-top: 20px; 
+    padding-bottom: 20px; 
+    background-color: #494E6B;  
+    display: flex; 
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;
+    color: white; 
+    border: 2px solid #EFD9C1; 
+    border-radius: 8px; 
+}
+
+.login-title {
+    padding-bottom: 36px; 
+}
+
+.login-container input {
+    margin-left: 64px; 
+    margin-top: 8px; 
+    width: 100%;
+    font-size: 25px;
+    background-color: transparent;
+    border: none;
+    color: white; 
+}
+
+::placeholder {
+    color: #98878F; 
+}
+
+.login-container input:focus {
+    outline: none;
+}
+
+#login-button {
+    margin-top: 24px; 
+    background-color: #985E6D;
+    cursor: pointer; 
+    padding: 8px 84px; 
+    border-radius: 5px;
+}
+
+#register-button {
+    margin-top: 24px; 
+    background-color: #985E6D;
+    cursor: pointer; 
+    padding: 8px 22px; 
+    border-radius: 5px; 
+}
+
+a {
+    text-decoration: none;
+    color: white; 
+}
+
+#login-error-container {
+    width: 100%; 
+    height: 100%; 
+    display: grid; 
+    justify-items: center;
+    align-items: center;
+}
+
+#login-error-msg {
+    width: 23%;
+    text-align: center;
+    margin: 0;
+    padding: 5px;
+    font-size: 12px;
+    color: white;
+    border: 1px solid white;
+    background-color: #985E6D;
+    opacity: 0; 
+}
