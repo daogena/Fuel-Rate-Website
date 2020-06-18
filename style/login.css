@@ -1,13 +1,13 @@
 
 body {
     margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #192231;
+    font-family: 'MaisonNeue-Bold','Helvetica',sans-serif;
+    /* background-color: #192231; */
 }
 
 header {
     min-height: 200px;
-    color: white;
+    color: black;
     display: flex;
     justify-content: center;
     position: relative;
@@ -37,52 +37,53 @@ header {
     margin-left: 100px; 
     padding-top: 20px; 
     padding-bottom: 20px; 
-    background-color: #494E6B;  
     display: flex; 
     flex-direction: column;
     justify-content: center; 
     align-items: center;
-    color: white; 
-    border: 2px solid #EFD9C1; 
-    border-radius: 8px; 
+    color: black; 
 }
 
 .login-title {
     padding-bottom: 36px; 
+    font-weight: bold; 
 }
 
 .login-container input {
-    margin-left: 64px; 
     margin-top: 8px; 
-    width: 100%;
+    padding: 10px 10px; 
+    width: calc(40% - 20px);
     font-size: 25px;
     background-color: transparent;
-    border: none;
-    color: white; 
+    border: 1px solid gray;
+    color: black;
+    border-radius: 5px; 
 }
 
 ::placeholder {
-    color: #98878F; 
+    color: gray; 
 }
 
 .login-container input:focus {
     outline: none;
+    transform: translate3d(0, -5, 0);
+    box-shadow: 0 2rem 5rem rgba(0, 0, 0, .3);
+    transition: all 0.1s ease; 
 }
 
 #login-button {
     margin-top: 24px; 
-    background-color: #985E6D;
-    cursor: pointer; 
+    background-color: #272727;
     padding: 8px 84px; 
-    border-radius: 5px;
+    color: white; 
+    cursor: pointer; 
 }
 
 #register-button {
     margin-top: 24px; 
-    background-color: #985E6D;
-    cursor: pointer; 
+    background-color: #272727;
     padding: 8px 22px; 
-    border-radius: 5px; 
+    cursor: pointer; 
 }
 
 a {
