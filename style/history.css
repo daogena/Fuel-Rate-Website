@@ -1,1 +1,38 @@
 /* Style for history page */
+.history-container {
+    max-width: 600px; 
+    min-width: 500px; 
+    width: 100%; 
+    padding-left: 16px; 
+    padding-right: 16px; 
+    margin-left: 350px; 
+}
+
+.history-item {
+    border: 1px solid #eaecee;
+    border-radius: 8px; 
+    min-height: 200px; 
+    overflow: hidden;
+    margin-top: 24px; 
+    padding-bottom: 24px; 
+}
+
+.label {
+    font-size: 18px;
+    color: #333;
+    height: 20px;
+    width: 200px;
+    margin-top: 10px;
+    margin-left: 10px;
+    text-align: right;
+    margin-right:15px;
+    float:left;
+}
+
+.value {
+    font-size: 18px; 
+    height: 20px;
+    width: 500px;
+    margin-top: 10px;
+    padding-top: 10px;
+}
