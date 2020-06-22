@@ -1,1 +1,37 @@
 <!-- Fuel Quote form -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Fuel Predictor</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style/fuel-form.css">
+        <link rel="stylesheet" href="style/login.css">
+        <script src="js/fuel-form.js"></script>
+    </head>
+    <body>
+        <div class="fuel-form-page container">
+            <header>
+                <div class="header-container">
+                    <div class="title">Fuel Quote Form Page</div>
+                </div>
+            </header>
+
+            <div id="login-error-container">
+                <p id="login-error-msg">Please fill in required fields</p>
+            </div>
+
+            <div class="fuel-form-container">
+                <div class="fuel-form-title">CALCULATE FUEL PRICE</div>
+                <input id="gallons" type="number" placeholder="Gallons Requested" required>
+                <input id=delivery-address type="text" value="1234 Road Blvd." readonly> 
+                <input id="delivery-date" type="date">
+                <input id="suggested-price-per-gallon" type="text" value="$3 / gallon" placeholder="price / gallon" readonly>
+                <div id="submit-button" onclick="calculate()">Calculate</div>  
+                <div id="total">$</div>
+            </div>
+        </div>
+        <footer></footer>
+    </body>
+</html>
