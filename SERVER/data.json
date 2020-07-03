@@ -1,0 +1,51 @@
+[{
+    "username": "user3",
+    "password": "nopass",
+    "fullName": "",
+    "address": "",
+    "history": ""
+}, {
+    "username": "user",
+    "password": "pass",
+    "fullName": "Jane Doe",
+    "address": {
+        "line1": "1234 Road Blvd.",
+        "line2": "",
+        "city": "Houston",
+        "state": "TX",
+        "zipcode": "12345"
+    },
+    "history": [{
+        "total": "$60",
+        "gallons": "20",
+        "deliveryDate": "1592975298470",
+        "price": "$3"
+    }, {
+        "total": "$52",
+        "gallons": "13",
+        "deliveryDate": "1581461442206",
+        "price": "$4"
+    }]
+}, {
+    "username": "user2",
+    "password": "pass2",
+    "fullName": "John Doe",
+    "address": {
+        "line1": "9876 Road Blvd.",
+        "line2": "",
+        "city": "Houston",
+        "state": "TX",
+        "zipcode": "54321"
+    },
+    "history": [{
+        "total": "$100",
+        "gallons": "20",
+        "deliveryDate": "1592975298470",
+        "price": "$5"
+    }, {
+        "total": "$20",
+        "gallons": "5",
+        "deliveryDate": "1581461442206",
+        "price": "$4"
+    }]
+}]
