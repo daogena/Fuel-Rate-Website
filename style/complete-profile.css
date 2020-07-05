@@ -1,32 +1,5 @@
 /* Style for profile page */
-.complete-profile-container {
-    margin-top: 20px; 
-    margin-right: 100px; 
-    margin-left: 100px; 
-    padding-top: 20px; 
-    padding-bottom: 20px;
-    display: flex; 
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: black; 
-}
 
-.complete-profile-title {
-    padding-bottom: 36px; 
-    font-weight: bold;
-}
-
-.complete-profile-container input {
-    margin-top: 8px; 
-    padding: 6px 10px; 
-    width: calc(50% - 20px);
-    font-size: 25px;
-    background-color: transparent;
-    border: 1px solid gray;
-    color: black; 
-    border-radius: 5px;
-}
 
 .complete-profile-container select {
     margin-top: 8px; 
@@ -37,23 +10,4 @@
     border: 1px solid gray;
     color: black; 
     border-radius: 5px; 
-}
-
-::placeholder {
-    color: gray; 
-}
-
-.complete-profile-container input:focus {
-    outline: none;
-    transform: translate3d(0, -5, 0);
-    box-shadow: 0 2rem 5rem rgba(0, 0, 0, .3);
-    transition: all 0.1s ease; 
-}
-
-#submit-button {
-    margin-top: 24px; 
-    background-color: #272727;
-    cursor: pointer; 
-    padding: 8px 84px;
-    color: white; 
 }
