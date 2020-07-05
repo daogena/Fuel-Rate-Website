@@ -1,29 +1,3 @@
-.profile-container {
-    margin-top: 50px; 
-    margin-right: 100px; 
-    margin-left: 100px; 
-    padding-top: 20px; 
-    padding-bottom: 20px;
-    display: flex; 
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: black; 
-}
-
-.profile-title {
-    padding-bottom: 36px; 
-    font-weight: bold;
-}
-
-#fuel-quote-form-button {
-    margin-top: 24px; 
-    background-color: #272727;
-    cursor: pointer; 
-    padding: 8px 84px;
-    color: white; 
-}
-
 #fuel-quote-history-button {
     margin-top: 24px; 
     background-color: #272727;
