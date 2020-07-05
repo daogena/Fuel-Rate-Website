@@ -7,7 +7,7 @@ function submit() {
     let zipCode = document.getElementById("zipcode").value;
     let loginError = document.getElementById("login-error-msg"); 
 
-    if ((fullName == "") || (address == "") || (city == "") || (state == "State") || (zipCode.length < 5)) {
+    if ((fullName == "") || (address == "") || (city == "") || (state == "State") || (zipCode.toString().length < 5)) {
         loginError.style.opacity = 1; 
     }
     else {
