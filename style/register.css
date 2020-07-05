@@ -1,8 +1,5 @@
 /* Style for registration page */
 .registration-container {
-    margin-top: 50px; 
-    margin-right: 100px; 
-    margin-left: 100px; 
     padding-top: 20px; 
     padding-bottom: 20px;
     display: flex; 
@@ -12,15 +9,18 @@
     color: black; 
 }
 
-.registration-title {
-    padding-bottom: 36px; 
-    font-weight: bold;
+form {
+    padding-left: 200px;
+    padding-right: 200px;
+}
+
+form input {
+    display: flex; 
 }
 
 .registration-container input {
     margin-top: 8px; 
     padding: 6px 10px; 
-    width: calc(50% - 20px);
     font-size: 25px;
     background-color: transparent;
     border: 1px solid gray;
@@ -28,21 +28,3 @@
     border-radius: 5px;
 }
 
-::placeholder {
-    color: gray; 
-}
-
-.registration-container input:focus {
-    outline: none;
-    transform: translate3d(0, -5, 0);
-    box-shadow: 0 2rem 5rem rgba(0, 0, 0, .3);
-    transition: all 0.1s ease; 
-}
-
-#signup-button {
-    margin-top: 24px; 
-    background-color: #272727;
-    cursor: pointer; 
-    padding: 8px 84px;
-    color: white; 
-}
