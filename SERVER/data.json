@@ -1,12 +1,27 @@
 [{
-    "username": "user3",
-    "password": "nopass",
-    "fullName": "",
-    "address": "",
-    "history": ""
+    "username": "user2",
+    "password": "$2b$10$eoUP.ipAq07st1qJOTbA8Oq.uF2fFOw8iezrq/ggSd9YE0ImqNtQS",
+    "fullName": "John Doe",
+    "address": {
+        "line1": "9876 Road Blvd.",
+        "line2": "",
+        "city": "Houston",
+        "state": "TX",
+        "zipcode": "54321"
+    },
+    "history": [{
+        "total": "$100",
+        "gallons": "20",
+        "deliveryDate": "1592975298470",
+        "price": "$5"
+    }, {
+        "total": "$20",
+        "gallons": "5",
+        "deliveryDate": "1581461442206"
+    }]
 }, {
     "username": "user",
-    "password": "pass",
+    "password": "$2b$10$D79CXIRs/EVZAc86LqMS8O0y.4Me2mLeUSBp3N1jl8EkPczDQbIj2",
     "fullName": "Jane Doe",
     "address": {
         "line1": "1234 Road Blvd.",
@@ -27,25 +42,9 @@
         "price": "$4"
     }]
 }, {
-    "username": "user2",
-    "password": "pass2",
-    "fullName": "John Doe",
-    "address": {
-        "line1": "9876 Road Blvd.",
-        "line2": "",
-        "city": "Houston",
-        "state": "TX",
-        "zipcode": "54321"
-    },
-    "history": [{
-        "total": "$100",
-        "gallons": "20",
-        "deliveryDate": "1592975298470",
-        "price": "$5"
-    }, {
-        "total": "$20",
-        "gallons": "5",
-        "deliveryDate": "1581461442206",
-        "price": "$4"
-    }]
+    "username": "newuser",
+    "password": "$2b$10$zOPieqZ2/sy8gP9QQa8yMe6Up1WLb0RvQeyui2lmCstxA2VOlXcSa",
+    "fullName": "",
+    "address": "",
+    "history": ""
 }]
