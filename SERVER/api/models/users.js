@@ -8,7 +8,7 @@ class User {
         return this.readData(); 
     }
 
-    getIndividualUser() {
+    getIndividualUser(userId) {
         // Get one user
         const users = this.readData();
         const foundUser = users.find((user) => user.username == userId); 
@@ -19,6 +19,15 @@ class User {
         // Add new user
         const currentUsers = this.readData(); 
         currentUsers.unshift(newUser);
+        this.storeData(currentUsers);
+    }
+
+    update(userId, newUser) {
+        // Update user data
+        const currentUsers = this.readData(); 
+        const foundUser = currentUsers.find((user) => user.username == userId);
+        const index = currentUsers.indexOf(foundUser);
+        currentUsers[index] = newUser; 
         this.storeData(currentUsers);
     }
 
