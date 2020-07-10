@@ -14,10 +14,16 @@ describe("User class", () => {
         let userId = "user";
         let result = user.getIndividualUser(userId); 
         result.should.be.an('object');
-    })
+    });
     it('add function should return undefined', () => {
         let newUser = "username";
         let result = user.add(newUser);
+        expect(result).to.be.an('undefined');
+    });
+    it('update function should return undefined', () => {
+        let userId = "user"; 
+        let newUser = "username"; 
+        let result = user.update(userId, newUser); 
         expect(result).to.be.an('undefined');
     })
     it('readData function should read data', () => {
