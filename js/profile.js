@@ -32,3 +32,8 @@ const buildProfile = (data) => {
     document.getElementById("zipcode").innerText = data.address['zipcode']; 
 }
 
+function redirectToHistory() {
+    const userId = getUserIdParam(); 
+    const historyLink = `./history.html?id=${userId}`; 
+    window.location.href = `${historyLink}`;
+}
