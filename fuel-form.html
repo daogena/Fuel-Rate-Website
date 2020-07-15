@@ -27,9 +27,10 @@
                 <input id="gallons" type="number" placeholder="Gallons Requested" required>
                 <input id=delivery-address type="text" value="1234 Road Blvd." readonly> 
                 <input id="delivery-date" type="date">
-                <input id="suggested-price-per-gallon" type="text" value="$3 / gallon" placeholder="price / gallon" readonly>
-                <div id="submit-button" onclick="calculate()">Calculate</div>  
+                <input id="suggested-price-per-gallon" type="text" value="price / gallon" readonly>
                 <div id="total">$</div>
+                <div id="get-quote-button" onclick="getUserHistory()">Get Quote</div>  
+                <div id="submit-quote-button" onclick="submitForm()">Submit Quote</div>  
             </div>
         </div>
         <footer></footer>
