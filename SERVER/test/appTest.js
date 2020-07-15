@@ -1,104 +1,100 @@
-var app = require('../app'); 
-var chai = require('chai');
-var chaiHttp = require('chai-http');
+const express = require("express");
+const app = express();
+const User = require("./api/models/users");
+var multer = require('multer');
 
-chai.use(chaiHttp);
-chai.should(); 
+var bcrypt = require('bcrypt'); 
+var saltRounds = 10; 
 
-describe("App", () => {
-    //Test to get all user data
-    var server = chai.request.agent(app);
-    it ("should get all user data", (done) => {
-        server
-            .get('/api/users')
-            .end((err, res) => {
-                res.should.have.status(200);
-                res.body.should.be.a('array');
-                done(); 
-            });
-    });
-    it ("should get individual user", (done) => {
-        const id = "user"; 
-        server
-            .get(`/api/users/${id}`)
-            .end((err, res) => {
-                res.should.have.status(200);
-                done(); 
-            })
-    });
-    it("should not get nonexistent user", (done) => {
-        const id = "failUser"; 
-        server
-            .get(`/api/users/${id}`)
-            .end((err, res) => {
-                res.should.have.status(404);
-                done(); 
-            }) 
-    });
-    it("should update existing user", (done) => {
-        const id = "user"; 
-        let newUser = {
-            "fullName": "Gena Dao"
-        }; 
-        server
-            .put(`/api/users/${id}`)
-            .send(newUser)
-            .end((err, res) => {
-                res.should.have.status(200);
-                done(); 
-            })
-    });
-    it("should not update user not found", (done) => {
-        const id = "sampleuser";
-        let newUser = {
-            "fullName": "Gena Dao"
-        };
-        server
-            .put(`/api/users/${id}`)
-            .send(newUser)
-            .end((err, res) => {
-                res.should.have.status(404);
-                done(); 
-            }) 
-    });
-    it("should return 200 status for correct password", (done) => {
-        const id = "user"; 
-        let user = {
-            "username": "user", 
-            "password": "pass"
-        }; 
-        server
-            .post(`/api/users/${id}`)
-            .send(user)
-            .end((err, res) => {
-                res.should.have.status(200);
-                done(); 
-            })
-    });
-    it("should return 404 status for incorrect password", (done) => {
-        const id = "user"; 
-        let user = {
-            "username": "user", 
-            "password": "incorrectpass"
-        }; 
-        server
-            .post(`/api/users/${id}`)
-            .send(user)
-            .end((err, res) => {
-                res.should.have.status(404);
-                done(); 
-            })
-    });
-    it("should add new user", (done) => {
-        let newUser = {
-            "username": "user"
-        }; 
-        server 
-            .post('/api/users')
-            .send(newUser)
-            .end((err, res) => {
-                res.should.have.status(201); 
-                done(); 
-            })
-    });
+var upload = multer(); 
+const userData = new User();
+
+
+app.use(express.json());
+
+app.use((req, res, next) => {
+    res.setHeader("Access-Control-Allow-Origin", "*"); 
+    res.setHeader("Access-Control-Allow-Methods", "*");
+    next(); 
+}); 
+
+app.get("/api/users", (req, res) => {
+    res.status(200).send(userData.get())
 });
+
+app.get("/api/users/:user_id", (req, res) => {
+    const userId = req.params.user_id;
+    const foundUser = userData.getIndividualUser(userId);
+    if (foundUser) {
+        res.status(200).send(foundUser);
+    } else {
+        res.status(404).send("Not found");
+    }
+});
+
+app.put("/api/users/:user_id", upload.single(), (req, res) => {
+    const userId = req.params.user_id; 
+    let foundUser = userData.getIndividualUser(userId); 
+    if (foundUser) {
+        foundUser.fullName = req.body.fullName;
+        var address = {
+            "line1": req.body.line1, 
+            "line2": req.body.line2, 
+            "city": req.body.city, 
+            "state": req.body.state, 
+            "zipcode": req.body.zipcode
+        }
+        foundUser.address = address; 
+        userData.update(userId, foundUser);
+        res.status(200).send(foundUser);
+    } else {
+        res.status(404).send("Not found"); 
+    }
+});
+
+app.put("/api/users/form/:user_id", upload.single(), (req, res) => {
+    const userId = req.params.user_id; 
+    let foundUser = userData.getIndividualUser(userId);
+    if (foundUser) {
+        var history = {
+            "total": req.body.total, 
+            "gallons": req.body.gallons, 
+            "deliveryDate": req.body.deliveryDate, 
+            "price": req.body.price
+        }
+        userData.updateHistory(userId, history); 
+        res.status(200).send(history); 
+    } else {
+        res.status(404).send("Not found");
+    }
+});
+
+app.post("/api/users/:user_id", upload.single(), (req, res) => {
+    const userId = req.params.user_id; 
+    let foundUser = userData.getIndividualUser(userId); 
+    bcrypt.compare(req.body.password, foundUser.password, function(err, result) {
+        if (result == true) {
+            res.status(200).send('Found'); 
+        } else {
+            res.status(404).send('Incorrect password'); 
+        }
+    })
+})
+
+app.post("/api/users", upload.single(), (req, res) => {
+    bcrypt.hash(req.body.password, saltRounds, function(err, hash) {
+        let newUser = {
+            "username": req.body.username, 
+            "password": hash, 
+            "fullName": "", 
+            "address": "", 
+            "history": ""
+        }
+        userData.add(newUser);
+        res.status(201).send(newUser);
+    })
+});
+
+app.listen(3000, () => console.log("Listening on http://localhost:3000"));
+
+module.exports = app; 
