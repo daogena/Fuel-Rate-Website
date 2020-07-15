@@ -25,7 +25,13 @@ describe("User class", () => {
         let newUser = "username"; 
         let result = user.update(userId, newUser); 
         expect(result).to.be.an('undefined');
-    })
+    });
+    it('updateHistory function should return undefined', () => {
+        let userId = "user"; 
+        let newHistory = "history"; 
+        let result = user.updateHistory(userId, newHistory); 
+        expect(result).to.be.an('undefined'); 
+    });
     it('readData function should read data', () => {
         let result = user.readData(); 
         result.should.be.an('array');
