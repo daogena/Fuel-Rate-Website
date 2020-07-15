@@ -52,6 +52,23 @@ app.put("/api/users/:user_id", upload.single(), (req, res) => {
     }
 });
 
+app.put("/api/users/form/:user_id", upload.single(), (req, res) => {
+    const userId = req.params.user_id; 
+    let foundUser = userData.getIndividualUser(userId);
+    if (foundUser) {
+        var history = {
+            "total": req.body.total, 
+            "gallons": req.body.gallons, 
+            "deliveryDate": req.body.deliveryDate, 
+            "price": req.body.price
+        }
+        userData.updateHistory(userId, history); 
+        res.status(200).send(history); 
+    } else {
+        res.status(404).send("Not found");
+    }
+});
+
 app.post("/api/users/:user_id", upload.single(), (req, res) => {
     const userId = req.params.user_id; 
     let foundUser = userData.getIndividualUser(userId); 
