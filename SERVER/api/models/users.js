@@ -31,6 +31,15 @@ class User {
         this.storeData(currentUsers);
     }
 
+    updateHistory(userId, newHistory) {
+        // Update user history
+        const currentUsers = this.readData(); 
+        const foundUser = currentUsers.find((user) => user.username == userId); 
+        const index = currentUsers.indexOf(foundUser); 
+        currentUsers[index]['history'].unshift(newHistory); 
+        this.storeData(currentUsers); 
+    }
+
     readData() {
         let rawdata = fs.readFileSync(PATH);
         let users = JSON.parse(rawdata);
