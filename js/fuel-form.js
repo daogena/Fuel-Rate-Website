@@ -32,10 +32,10 @@ const pricingModule = (user) => {
     // Set Location Factor depending on whether user is in- or out-of-state
     let state = user.address['state']; 
     let locationFactor; 
-    if (state == 'TX') {
-        locationFactor = 0.02; 
+    if (state == 'TX' || state == 'tx') {
+        locationFactor = (2/100); 
     } else {
-        locationFactor = 0.04; 
+        locationFactor = (4/100); 
     }
     
     // Set Rate History Factor depending on whether user has requested fuel before
@@ -46,7 +46,7 @@ const pricingModule = (user) => {
         count++;
     }
     if (count > 0) {
-        historyFactor = 0.01;
+        historyFactor = (1/100);
     } else {
         historyFactor = 0; 
     }
@@ -55,9 +55,9 @@ const pricingModule = (user) => {
     let gallons = document.getElementById("gallons").value; 
     let gallonFactor; 
     if (gallons > 1000) {
-        gallonFactor = 0.02;
+        gallonFactor = (2/100);
     } else {
-        gallonFactor = 0.03;
+        gallonFactor = (3/100);
     }
 
     // Calculate margin
