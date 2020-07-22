@@ -52,33 +52,25 @@ const pricingModule = (user) => {
     }
     
     // Set Gallons Request Factor 
-    let gallons_valid = false; // holds true/false if a valid input for gallons was received. initially set to false to help with do-while loop
-    
-    do 
+    let gallonFactor; 
+    let gallons = document.getElementById("gallons").value; 
+    // Check if all required fields have been filled in
+    if ((gallons == "") || (date == "")) {
+        error.style.opacity = 1; 
+        return; 
+    }
+    if( gallons == 0)//if we get zero as gallon amount
     {
-        let gallons = document.getElementById("gallons").value; 
-        let gallonFactor; 
-
-        if( gallon == 0)//if we get zero as gallon amount
-        {
-            gallons_valid = false; // we need a gallon amount to do the calculation. we can't proceed with zero gallon as entry. so we ask for a new entry again   
-        }
-        else if (gallons > 1000)  // checks wheter gallon amount is greater than 1000
-        {      
-            gallonFactor = (2/100);// if gallon amount greater than 1000. gallon request factor = 2%
-            gallons_valid = true; // we have a valid input for gallon. helps exist do-while loop
-        } 
-        else if (gallons < 1000) // checks if gallon amount is less than 1000
-        {
-            gallonFactor = (3/100);// gallons factor is 3% if gallon amount less than 1000
-            gallons_valid = true; //we have a valid input for gallon. we set this to true to help exit do-while loop
-        }
-        else // if the gallon entry is not less 1000, or greater than 1000, or at equal 0. then we most likely have a non-sensible entry which can cause damage to our program
-        {
-                gallons_valid = false;// we most likely have a nonsible entry then. and so the input is not valid
-        }
-
-    }while(gallons_valid == false)// we repeatidly attemp to set the gallon factor untill we get a valid input.
+        error.style.opacity = 1; // we need a gallon amount to do the calculation. we can't proceed with zero gallon as entry. so we ask for a new entry again   
+    }
+    else if (gallons > 1000)  // checks wheter gallon amount is greater than 1000
+    {      
+        gallonFactor = (2/100);// if gallon amount greater than 1000. gallon request factor = 2%
+    } 
+    else if (gallons < 1000) // checks if gallon amount is less than 1000
+    {
+        gallonFactor = (3/100);// gallons factor is 3% if gallon amount less than 1000
+    }
 
     // Calculate margin
     let margin = currentPrice * (locationFactor - historyFactor + gallonFactor + profitFactor); 
