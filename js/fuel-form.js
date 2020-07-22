@@ -67,7 +67,7 @@ const pricingModule = (user) => {
     {      
         gallonFactor = (2/100);// if gallon amount greater than 1000. gallon request factor = 2%
     } 
-    else if (gallons < 1000) // checks if gallon amount is less than 1000
+    else // checks if gallon amount is less than 1000
     {
         gallonFactor = (3/100);// gallons factor is 3% if gallon amount less than 1000
     }
